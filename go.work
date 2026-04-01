@@ -1,0 +1,14 @@
+go 1.24.0
+
+toolchain go1.24.0
+
+// godebug in go.work overrides godebug in individual go.mod files (Go 1.23+)
+// Note: the 'tool' directive in go.work (Go 1.24+) may require a newer toolchain.
+// Per spec it should be: tool golang.org/x/tools/cmd/goimports
+// but support in 'go work sync' may vary by toolchain build.
+godebug asynctimerchan=1
+
+use (
+	./moduleA
+	./moduleB
+)
